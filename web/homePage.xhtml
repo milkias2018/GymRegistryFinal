@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Home Page</title>
+
+        <h:outputStylesheet library="css" name="styles.css" />
+
+
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true"  >
+            <p:layoutUnit position="north" size="200"  id="bannerimage" ></p:layoutUnit> 
+
+            <p:layoutUnit position="south" size="180" id="bannerimage1" ></p:layoutUnit> 
+
+           
+
+            <p:layoutUnit position="west" size="300" > 
+                <h:form>
+
+                    <p:panelMenu style="width:300px">
+                        <p:submenu label="Menu">
+                            <p:menuitem value="Home" action ="homePage" class="home" ajax='false' icon="ui-icon-home" />
+                            <p:menuitem value="Register" action="registrationPage" ajax="false" class="home" icon="ui-icon-disk" />
+                            <p:menuitem value="Update" action="updatePage" ajax="false" class="home" icon="ui-icon-person" />
+                            <p:menuitem value="Remove" action="removePage" ajax="false" class="home" icon="ui-icon-trash" />
+                            <p:menuitem value="Find Record" action="searchPage" ajax="false" class="home" icon="ui-icon-zoomin" />
+                            <p:menuitem value="Show Records" action="recordsPage" ajax="false" class="home" icon="ui-icon-collapsed" />
+                           
+                        </p:submenu>
+
+                        <p:separator />
+                      
+                    </p:panelMenu>
+                </h:form>
+            </p:layoutUnit> 
+
+            <p:layoutUnit position="center">
+
+                <p:panel id="basic" header="Welcome to Lexicon Gym System" footer="Promoting the success of our clients in meeting their fitness goals." style="margin-bottom:5px">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <p:graphicImage library="img" name="gymhome.png"  width="300"/>
+                        <h:outputText
+                            value="Lexicon Fitness is a health club that creates a personalized environment for people to pursue their fitness goals.  
+                            We have the best equipment and the best training program in this arena. We prepare our clients for success!  
+                            We have the best weight-management program.  
+                            Positive Lifestyle Systems is a truly responsible, effective, weight-management program. We offer this program with confidence. 
+                            It is unbeatable.
+                            Lexicon Fitness' focus is the urban professional person who has a very active life and very little time to spend on fitness. 
+                            We also focus on young mothers who are looking for a fitness environment that is focused on their unique needs.
+                            Lexicon Fitness is located in Liljeholmen. The Galleria is the central shopping facility in the area and is conveniently located, with plenty of parking.
+                            From the selection of workout machines to the organization of the child care center, 
+                            Lexicon Fitness will create a supportive experience that will bring in new members by word of mouth. "  />
+                    </h:panelGrid>
+                </p:panel>
+
+            </p:layoutUnit> 
+
+        </p:layout>
+
+
+
+    </h:body>
+</html>
+

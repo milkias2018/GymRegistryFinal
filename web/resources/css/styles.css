@@ -1,0 +1,34 @@
+
+h1 {
+    color: white;
+    text-align: center;
+}
+.message{
+   color:green;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+
+.body{
+    display: block; text-align: center;
+}
+
+#bannerimage {   
+  
+  border-style: hidden;
+  background-image: url("img/ban1.png");
+  background-position: top;
+}
+#bannerimage1 {   
+  
+  border-style: hidden;
+  background-image: url("img/footer.png");
+  background-position: bottom;
+}
+.ui-layout-unit-content{
+    background-color: transparent !important;
+}
+

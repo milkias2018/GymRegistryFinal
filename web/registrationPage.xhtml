@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Customer Register</title>
+
+        <h:outputStylesheet library="css" name="styles.css" />
+
+
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true"  >
+            <p:layoutUnit position="north" size="200"  id="bannerimage" ></p:layoutUnit> 
+
+            <p:layoutUnit position="south" size="180" id="bannerimage1" ></p:layoutUnit> 
+
+         
+
+            <p:layoutUnit position="west" size="300" > 
+                <h:form>
+
+                    <p:panelMenu style="width:300px">
+                        <p:submenu label="Menu">
+                            <p:menuitem value="Home" action ="homePage" class="home" ajax='false' icon="ui-icon-home" />
+                            <p:menuitem value="Register" action="registrationPage" ajax="false" class="home" icon="ui-icon-disk" />
+                            <p:menuitem value="Update" action="updatePage" ajax="false" class="home" icon="ui-icon-person" />
+                            <p:menuitem value="Remove" action="removePage" ajax="false" class="home" icon="ui-icon-trash" />
+                            <p:menuitem value="Find Record" action="searchPage" ajax="false" class="home" icon="ui-icon-zoomin" />
+                            <p:menuitem value="Show Records" action="recordsPage" ajax="false" class="home" icon="ui-icon-collapsed" />
+                            
+                        </p:submenu>
+
+                        <p:separator />
+                    
+                    </p:panelMenu>
+                </h:form>
+            </p:layoutUnit> 
+
+            <p:layoutUnit position="center">
+
+
+
+
+
+                <h:form>
+                    <p:panel  header="Register a Member" collapsed="true" style="margin-bottom:20px"  ></p:panel>
+                    <p:panelGrid id="grid" columns="2" >
+
+                        <p:outputLabel for="personalNumber" value="Personal number"/>
+
+                        <p:inputText id="personalNumber" value="#{customerController.personalNumber}" required="true" requiredMessage="Personal Number is required.Please enter a value"/> 
+
+                        <p:outputLabel for="firstName" value="First name" />
+                        <p:inputText id="firstName" value="#{customerController.firstName}" required="true"/> 
+
+                        <p:outputLabel for="lastName" value="Last name"/>
+                        <p:inputText id="lastName" value="#{customerController.lastName}" required="true" /> 
+
+                        <p:outputLabel for="membership" value="Membership Type"/>
+
+                        <p:selectOneMenu id="membership" required="true" value="#{customerController.membershiptype}">
+                            <f:selectItem itemLabel="Select membership choice" itemValue="" />
+                            <f:selectItem itemLabel="Standard" itemValue="Standard" />
+                            <f:selectItem itemLabel="Extra" itemValue="Extra" />
+                            <f:selectItem itemLabel="Off-peak" itemValue="off-peak" />
+                        </p:selectOneMenu>
+                        <p:outputLabel for="branch" value="Branch"/>
+                        <p:selectOneMenu id="branch"  required="true" value="#{customerController.branch}">
+                            <f:selectItem itemLabel="Select branch" itemValue="" />
+                            <f:selectItem itemLabel="Liljeholmen" itemValue="Liljeholmen" />
+                            <f:selectItem itemLabel="T-centralen" itemValue="T-centralen" />
+                            <f:selectItem itemLabel="Upplands väsby" itemValue="Upplands vasby" />
+                            <f:selectItem itemLabel="Solna" itemValue="Solna" />
+                            <f:selectItem itemLabel="Åkesöv" itemValue="Akesov" />
+                        </p:selectOneMenu>
+                        <p:outputLabel for="address" value="Address"/>
+                        <p:inputTextarea id="address" rows="6" cols="33" value="#{customerController.address}" required="true"/> 
+
+                        <p:outputLabel id="phoneNumber" value="Phone number"/>
+                        <p:inputText value="#{customerController.phoneNumber}" label="phoneNumber"/> 
+
+                        <p:outputLabel for="email" value="Email"/>
+                        <p:inputText id="email" value="#{customerController.email}" /> 
+
+
+
+                        <p:commandButton value="Register" action ="#{customerController.submit}" onsuccess="alert('Customer registered')" /> 
+                        <p:commandButton value="Reset" action ="#{customerController.reset()}"  update ="grid" resetValues="true" />
+                        
+                    </p:panelGrid>
+
+                </h:form>
+                <br />
+            </p:layoutUnit> 
+
+        </p:layout>
+
+
+
+    </h:body>
+</html>
+

@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Home Page</title>
+
+        <h:outputStylesheet library="css" name="styles.css" />
+
+
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true"  >
+            <p:layoutUnit position="north" size="200"  id="bannerimage" ></p:layoutUnit> 
+
+            <p:layoutUnit position="south" size="180" id="bannerimage1" ></p:layoutUnit> 
+
+         
+
+            <p:layoutUnit position="west" size="300" > 
+                <h:form>
+
+                    <p:panelMenu style="width:300px">
+                        <p:submenu label="Menu">
+                            <p:menuitem value="Home" action ="homePage" class="home" ajax='false' icon="ui-icon-home" />
+                            <p:menuitem value="Register" action="registrationPage" ajax="false" class="home" icon="ui-icon-disk" />
+                            <p:menuitem value="Update" action="updatePage" ajax="false" class="home" icon="ui-icon-person" />
+                            <p:menuitem value="Remove" action="removePage" ajax="false" class="home" icon="ui-icon-trash" />
+                            <p:menuitem value="Find Record" action="searchPage" ajax="false" class="home" icon="ui-icon-zoomin" />
+                            <p:menuitem value="Show Records" action="recordsPage" ajax="false" class="home" icon="ui-icon-collapsed" />
+                           
+                        </p:submenu>
+
+                        <p:separator />
+                        
+                    </p:panelMenu>
+                </h:form>
+            </p:layoutUnit> 
+
+            <p:layoutUnit position="center">
+
+
+
+                <h:form>
+                    <p:panel  header="Display Records" collapsed="true" style="margin-bottom:20px"></p:panel>               
+                    <h:panelGrid columns="2" >                                
+
+
+
+                        <p:dataTable value="#{customerController.allCustomers}" var="c">
+                            <p:column headerText="Id">#{c.id}</p:column>
+                            <p:column headerText="Personal number">#{c.personalNumber}</p:column>
+                            <p:column headerText="First name">#{c.firstName}</p:column>
+                            <p:column headerText="Last name">#{c.lastName}</p:column>
+                            <p:column headerText="Membership type">#{c.membershiptype}</p:column>
+                            <p:column headerText="Branch">#{c.branch}</p:column>
+                            <p:column headerText="Address">#{c.address}</p:column>
+                            <p:column headerText="Phone number">#{c.phoneNumber}</p:column>
+                            <p:column headerText="Email">#{c.email}</p:column>
+
+                        </p:dataTable>
+
+                    </h:panelGrid>
+
+                </h:form>
+
+
+
+                <h:form>
+                    <h:outputLabel>
+
+
+                    </h:outputLabel>
+
+
+
+
+                </h:form>
+                <br />
+            </p:layoutUnit> 
+
+        </p:layout>
+
+
+
+    </h:body>
+</html>
+

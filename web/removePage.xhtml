@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Home Page</title>
+
+        <h:outputStylesheet library="css" name="styles.css" />
+
+
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true"  >
+            <p:layoutUnit position="north" size="200"  id="bannerimage" ></p:layoutUnit> 
+
+            <p:layoutUnit position="south" size="180" id="bannerimage1" ></p:layoutUnit> 
+
+            
+
+            <p:layoutUnit position="west" size="300" > 
+                <h:form>
+
+                    <p:panelMenu style="width:300px">
+                        <p:submenu label="Menu">
+                            <p:menuitem value="Home" action ="homePage" class="home" ajax='false' icon="ui-icon-home" />
+                            <p:menuitem value="Register" action="registrationPage" ajax="false" class="home" icon="ui-icon-disk" />
+                            <p:menuitem value="Update" action="updatePage" ajax="false" class="home" icon="ui-icon-person" />
+                            <p:menuitem value="Remove" action="removePage" ajax="false" class="home" icon="ui-icon-trash" />
+                            <p:menuitem value="Find Record" action="searchPage" ajax="false" class="home" icon="ui-icon-zoomin" />
+                            <p:menuitem value="Show Records" action="recordsPage" ajax="false" class="home" icon="ui-icon-collapsed" />
+                            
+                        </p:submenu>
+
+                        <p:separator />
+                      
+                    </p:panelMenu>
+                </h:form>
+            </p:layoutUnit> 
+
+            <p:layoutUnit position="center">
+
+
+
+                <h:form>
+                    <p:panel  header="Remove a Record" collapsed="true" style="margin-bottom:20px"></p:panel>               
+                    <h:panelGrid columns="2" >                                
+                        <h:outputLabel value="ID Number"/>                
+                        <h:inputText value="#{customerController.idSearch}"/> 
+
+
+                        <p:commandButton value="Fetch" action ="#{customerController.fetch()}" ajax="false"/>
+
+
+                        <p:dataTable value="#{customerController.cs}" var="cust1">
+
+                            <p:column headerText="Personal Number" >#{cust1.personalNumber}</p:column>
+                            <p:column headerText="First name">#{cust1.firstName}</p:column>
+                            <p:column headerText="Last name">#{cust1.lastName}</p:column>
+                            <p:column headerText="Membership type">#{cust1.membershiptype}</p:column>
+                            <p:column headerText="Branch">#{cust1.branch}</p:column>
+                            <p:column headerText="Address">#{cust1.address}</p:column>
+                            <p:column headerText="Phone number">#{cust1.phoneNumber}</p:column>
+                            <p:column headerText="Email">#{cust1.email}</p:column>
+
+                        </p:dataTable>
+
+                        <p:commandButton value="Remove" action ="#{customerController.remove()}" onsuccess="alert('Customer removed')" />
+
+
+
+
+
+                    </h:panelGrid>
+
+                </h:form>
+
+
+
+
+                <br />
+            </p:layoutUnit> 
+
+        </p:layout>
+
+
+
+    </h:body>
+</html>
+
